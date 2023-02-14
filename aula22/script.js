@@ -14,3 +14,5 @@ const senha = '12345';
 
 const vaiLogar = usuario === 'Vick' && senha === '12345';
 console.log(vaiLogar);
+
+console.log(!true);

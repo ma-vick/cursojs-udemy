@@ -1,4 +1,4 @@
-// filter - sempre retorna um array com a mesma quantidade ou menos.
+// Filter -> sempre retorna um array com a mesma quantidade ou menos.
 
 // retorne os números maiores que 10
 const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];

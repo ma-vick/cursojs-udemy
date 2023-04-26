@@ -25,4 +25,5 @@ function Produto(nome, preco, estoque){
 
 const p1 = new Produto('camiseta', 20, 3);
 p1.estoque = 5000;
+console.log(Object.keys(p1));
 console.log(p1);

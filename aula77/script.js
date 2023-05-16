@@ -30,14 +30,15 @@ function ValidateCPF(sentCPF){
 ValidateCPF.prototype.validate = function(){
     if(typeof this.cleanCPF === 'undefined') return false;
     if(this.cleanCPF.length !== 11) return false;
+    if(this.isSequence()) return false;
 
     const cpfPartial = this.cleanCPF.slice(0, -2);
     const digit1 = this.createDigit(cpfPartial);
     const digit2 = this.createDigit(cpfPartial + digit1);
 
-    console.log(digit1, digit2);
+    const newCPF = cpfPartial + digit1 + digit2;
 
-    return true;
+    return newCPF === this.cleanCPF;
 };
 
 ValidateCPF.prototype.createDigit = function(cpfPartial){
@@ -50,7 +51,12 @@ ValidateCPF.prototype.createDigit = function(cpfPartial){
     }, 0);
 
     const digit = 11 - (total % 11);
-    return digit > 9 ? 0 : digit;
+    return digit > 9 ? '0' : String(digit);
+};
+
+ValidateCPF.prototype.isSequence = function(){
+    const sequence = this.cleanCPF[0].repeat(this.cleanCPF.length);
+    return sequence === this.cleanCPF;
 };
 
 const cpf = new ValidateCPF('705.484.450-52');
